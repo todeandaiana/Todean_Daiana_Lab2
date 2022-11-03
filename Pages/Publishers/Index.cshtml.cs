@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Todean_Daiana_Lab2.Data;
 using Todean_Daiana_Lab2.Models;
+using Todean_Daiana_Lab2.ViewModels;
+
 
 namespace Todean_Daiana_Lab2.Pages.Publishers
 {
@@ -30,7 +32,7 @@ namespace Todean_Daiana_Lab2.Pages.Publishers
             PublisherData = new PublisherIndexData();
             PublisherData.Publishers = await _context.Publisher
                 .Include(i => i.Books)
-                    .ThenInclude(c => c.Author)
+                .ThenInclude(c => c.Author)
                 .OrderBy(i => i.PublisherName)
                 .ToListAsync();
             if (id != null)
