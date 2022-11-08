@@ -20,5 +20,8 @@ namespace Todean_Daiana_Lab2.Models
         public Author? Author { get; set; }//navigation property
         public ICollection<BookCategory>? BookCategories { get; set; }
 
+  
+        public Borrowing? Borrowing { get; set; }
+
     } 
 }
